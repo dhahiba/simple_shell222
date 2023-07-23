@@ -1,5 +1,5 @@
-#ifndef SHELL_H
-#define SHELL_H
+#ifndef SHELL0_H
+#define SHELL0_H
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -35,10 +35,10 @@ extern char **environ;
  */
 typedef struct link_l
 {
-	char *s;
-	int n;
-	struct link_l* next;
-} link_l;
+        char *s;
+        int n;
+        struct link_l* next;
+};
 
 /**
  * struct inf_t - list of argements
@@ -63,29 +63,29 @@ typedef struct link_l
  */
 typedef struct inf_t
 {
-	char *path;
-	char **argv;
-	char *arg;
-	char **environ;
-	char fname;
-	char **cmd_buf;
-	int linecount_flag;
-	int argc;
-	unsigned int line_count;
-	int err_num;
-	int readfd;
-	int histcount;
-	int env_changed;
-	int status;
-	int cmd_buf_type;
-	link_l *history
-	link_l *alias
-	link_l *env;
-} inf_t;
+        char *path;
+        char **argv;
+        char *arg;
+        char **environ;
+        char fname;
+        char **cmd_buf;
+        int linecount_flag;
+        int argc;
+        unsigned int line_count;
+        int err_num;
+        int readfd;
+        int histcount;
+        int env_changed;
+        int status;
+        int cmd_buf_type;
+        link_l *history
+        link_l *alias
+        link_l *env;
+};
 
 #define INF_I \
 {NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, 0, 0, 0,\
-	0, 0, 0, 0, NULL, NULL, NULL}
+        0, 0, 0, 0, NULL, NULL, NULL}
 /**
  * struct buil - ..
  * @t: ...
@@ -93,10 +93,9 @@ typedef struct inf_t
  */
 typedef struct buil
 {
-	char *t;
-	int (*f)(inf_t *);
+        char *t;
+        int (*f)(inf_t *);
 } buil_t;
-
 /* chaine1.c */
 int _putchar(char c);
 void _puts(char *str);

@@ -8,7 +8,8 @@
 int main(int argc, char **argv)
 {
 	int fd = 2;
-	info_t inf = [INFO_I];
+	info_t inf =[INFO_I];
+
 	asm("mov %l, %0\n\t"
 			"add $3, %0"
 			: "-r" (fd)
@@ -32,7 +33,8 @@ int main(int argc, char **argv)
 		i++;
 	}
 	inf->env = node;
-
+	read_h(inf);
+	main_shell(inf, argv);
 
 	return (EXIT_SUCCESS);
 }

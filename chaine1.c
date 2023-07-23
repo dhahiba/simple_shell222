@@ -1,5 +1,24 @@
 #include "shell.h"
 /**
+ * _strdup - ...
+ * @str: string
+ * Return: .....
+ */
+char *_strdup(char *str)
+{
+if (str == NULL)
+return (NULL);
+
+size_t length = strlen(str);
+char *ret = malloc(length + 1);
+
+if (ret == NULL)
+return (NULL);
+
+_strcpy(ret, str);
+return (ret);
+}
+/**
  * _strlen - returns the length of a string
  * @s: string
  * Return: length
@@ -16,25 +35,6 @@ int _strlen(char *s)
 	return (longi);
 }
 /**
- * _strdup - ...
- * @str: string
- * Return: .....
- */
-char *_strdup(const char *str)
-{
-if (str == NULL)
-return (NULL);
-
-size_t length = strlen(str);
-char *ret = malloc(length + 1);
-
-if (ret == NULL)
-return (NULL);
-
-_strcpy(ret, str);
-return (ret);
-}
-/**
  * _strcpy - copy a string
  * @dest: destination value
  * @src: source value
@@ -42,15 +42,16 @@ return (ret);
  */
 char *_strcpy(char *dest, char *src)
 {
-	int i;
+        int i;
 
-	for (i = 0; src[i] != '\0'; i++)
-	{
-		dest[i] = src[i];
-	}
-	dest[i++] = '\0';
-	return (dest);
+        for (i = 0; src[i] != '\0'; i++)
+        {
+                dest[i] = src[i];
+        }
+        dest[i++] = '\0';
+        return (dest);
 }
+
 /**
  * _putchar - writes the character c to stdout
  * @c: the character to print

@@ -6,17 +6,17 @@
  * @n: ...
  * Return: ...
  */
-list_t *add_node(list_t **head, const char *str, int n)
+link_l *add_node(link_l **head, const char *str, int n)
 {
-	list_t *new;
+	link_l *new;
 
 	if (!head)
 		return (NULL);
-	new = malloc(sizeof(list_t));
+	new = malloc(sizeof(link_l));
 	if (!new)
 		return (NULL);
-	new->num = n;
-	new->str = _strdup(str);
+	new->n = n;
+	new->s = _strdup(str);
 	new->next = (*head);
 	(*head) = new;
 	return (*head);
@@ -28,19 +28,19 @@ list_t *add_node(list_t **head, const char *str, int n)
  * @n: int
  * Return: ...
  */
-list_t *add_node_end(list_t **head, const char *str, int n)
+link_l *add_node_end(link_l **head, const char *str, int n)
 {
-	list_t *new;
-	list_t *temp = *head;
+	link_l *new;
+	link_l *temp = *head;
 
 	if (!head)
 		return (NULL);
-	new = malloc(sizeof(list_t));
+	new = malloc(sizeof(link_l));
 	if (!new)
 		return (NULL);
 
-	new->str = _strdup(str);
-	new->num = n;
+	new->s = _strdup(str);
+	new->n = n;
 	new->next = NULL;
 	if (*head == NULL)
 	{
@@ -57,16 +57,16 @@ list_t *add_node_end(list_t **head, const char *str, int n)
  * @h: ...
  * Return: ...
  */
-size_t print_list_str(const list_t *h)
+size_t print_list_str(const link_l *h)
 {
 	size_t s = 0;
 
 	while (h)
 	{
-	if (!h->str)
+	if (!h->s)
 		printf("[0] (nil)\n");
 	else
-		printf(" %s\n", h->str);
+		printf(" %s\n", h->s);
 	h = h->next;
 	s++;
 	}
@@ -78,9 +78,9 @@ size_t print_list_str(const list_t *h)
  * @index: ...
  * Return: ....
  */
-int delete_node_at_index(listint_t **head, unsigned int index)
+int delete_node_at_index(link_l **head, unsigned int index)
 {
-	listint_t *node, *prev;
+	link_l *node, *prev;
 	unsigned int i = 0;
 
 	if (!head || !*head)
@@ -89,7 +89,7 @@ int delete_node_at_index(listint_t **head, unsigned int index)
 	{
 		node = *head;
 		*head = (*head)->next;
-		free(node->str);
+		free(node->s);
 		free(node);
 		return (1);
 	}
@@ -99,7 +99,7 @@ int delete_node_at_index(listint_t **head, unsigned int index)
 		if (i == index)
 		{
 			prev->next = node->next;
-			free(node->str);
+			free(node->s);
 			free(node);
 			return (1);
 		}
@@ -114,14 +114,14 @@ int delete_node_at_index(listint_t **head, unsigned int index)
  * @head: ...
  * Return: ...
  */
-void free_list(list_t *head)
+void free_list(link_l *head)
 {
-	list_t *temp;
+	link_l *temp;
 
 	while (head)
 	{
 		temp = head->next;
-		free(head->str);
+		free(head->s);
 		free(head);
 		head = temp;
 	}

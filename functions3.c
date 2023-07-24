@@ -1,4 +1,4 @@
-#include "shell.h"
+#include "shell0.h"
 /**
  * _myunsetenv - ...
  * @f: ...
@@ -54,7 +54,7 @@ return (0);
 char *_getenv(inf_t *f, const char *n)
 {
 char *s;
-link_l *nd = f->env;
+struct link_l *nd = f->env;
 
 while (nd)
 {

@@ -1,4 +1,4 @@
-#include "shell.h"
+#include "shell0.h"
 /**
  * find_path - ..
  * @f: ...
@@ -6,14 +6,14 @@
  * @c: ...
  * Return: ...
  */
-char *find_path(inf_t f, char *p, char *c)
+char *find_path(inf_t *f, char *p, char *c)
 {
 char *ps;
 int i, cp;
 
 if (!p)
 return (NULL);
-if ((_strlen(c) > 2) && starts_with(c, "./"))
+if ((_strlen(c) > 2) && strwith(c, "./"))
 {
 if (is_cmd(f, c))
 return (c);

@@ -1,4 +1,4 @@
-#include "shell.h"
+#include "shell0.h"
 /**
  * ffree - ..
  * @p: ...
@@ -74,7 +74,7 @@ char *_memset(char *s, char b, unsigned int n)
  * @p: ..
  * Return: ...
  */
-int bfree(void *p)
+int bfree(void **p)
 {
 	if (p && *p)
 	{

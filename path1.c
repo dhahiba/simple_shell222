@@ -1,4 +1,4 @@
-#include "shell.h"
+#include "shell0.h"
 /**
  * set_alias - ...
  * @f: ...
@@ -10,9 +10,9 @@ int set_alias(inf_t *f, char *s)
 char *ch;
 
 ch = _strchr(s, '=');
-if (!p)
+if (!ch)
 return (1);
-if (!*++p)
+if (!*++ch)
 return (unset_alias(f, s));
 unset_alias(f, s);
 return (add_node_end(&(f->alias), s, 0) == NULL);

@@ -1,4 +1,4 @@
-#include "shell.h"
+#include "shell0.h"
 /**
  * b_history - ...
  * @f: ...
@@ -11,7 +11,7 @@ int b_history(inf_t *f, char *b, int l)
 link_l *node = NULL;
 
 if (f->history)
-node = f->his;
+node = f->history;
 add_node_end(&node, b, l);
 if (!f->history)
 f->history = node;

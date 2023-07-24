@@ -1,4 +1,4 @@
-#include "shell.h"
+#include "shell0.h"
 /**
  * _inter - ...
  * @f: ..
@@ -7,9 +7,9 @@
 int _inter(inf_t *f)
 {
 	if (isatty(STDIN_FILENO) && f->readfd <= 2)
-		return (true);
+		return (1);
 	else
-		return (false);
+		return (0);
 }
 /**
  * is_delim - ...
@@ -47,9 +47,9 @@ int _isalpha(int c)
  *
  * Return: ..
  */
-void print_error(inf_t f, char *s)
+void print_error(inf_t *f, char *s)
 {
-	_puts(f->fname);
+	eputs(&(f->fname));
 	_putchar(' ');
 	print_d(f->line_count, STDERR_FILENO);
 	_putchar(':');

@@ -1,4 +1,4 @@
-#include "shell.h"
+#include "shell0.h"
 /**
  * main - ...
  * @argc: ...
@@ -7,10 +7,11 @@
  */
 int main(int argc, char **argv)
 {
-	int fd = 2;
-	info_t inf =[INFO_I];
+	int fd = 2, i;
+	link_l* node = NULL;
+	inf_t inf[] = { INF_I};
 
-	asm("mov %l, %0\n\t"
+	asm ("mov %l, %0\n\t"
 			"add $3, %0"
 			: "-r" (fd)
 			: "r" (fd));
@@ -19,13 +20,14 @@ int main(int argc, char **argv)
 
 	if (argc == 2)
 	{
-		f = open(argv[1], O_RDONLY);
-		if (f == -1)
+		fd = open(argv[1], O_RDONLY);
+		if (fd == -1)
 		{
 			exit(12);
 			return (EXIT_FAILURE);
 		}
 	}
+
 	i = 0;
 	while (environ[i])
 	{

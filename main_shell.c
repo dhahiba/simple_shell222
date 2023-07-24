@@ -1,11 +1,11 @@
-#include "shell.h"
+#include "shell0.h"
 /**
  * main_shell - ..
  * @f: ..
  * @s: ...
  * Return: ...
  */
-int main_shell(info_t f, char **s)
+int main_shell(inf_t *f, char **s)
 {
 ssize_t r = 0;
 int b = 0;
@@ -13,28 +13,28 @@ int b = 0;
 while (r != -1 && b != -2)
 {
 clear_info(f);
-if (inter(f))
+if (_inter(f))
 _puts("$ ");
 _eputchar(B);
-r = get_put(f);
+r = get_input(f);
 if (r != -1)
 {
 set_info(f, s);
 b = find_b(f);
 if (r == -1)
-f_cmd(f);
+find_cmd(f);
 }
-else if (inter(f))
+else if (_inter(f))
 _putchar('\n');
 free_inf(f, 0);
 }
 write_h(f);
 free_inf(f, 0);
-if (!inter(f) && f->status)
+if (!_inter(f) && f->status)
 exit(f->status);
 if (b == -2)
 {
-if (inf->err_num == -1)
+if (f->err_num == -1)
 exit(f->status);
 exit(f->err_num);
 }
@@ -45,7 +45,7 @@ return (b);
  * @f: ...
  * @l: ..
  */
-void free_inf(info_t f, int l)
+void free_inf(inf_t *f, int l)
 {
 ffree(f->argv);
 f->argv = NULL;
@@ -56,7 +56,7 @@ if (f->history)
 free_list(&(f->history));
 if (f->env)
 free_list(&(f->env));
-if (inf->alias)
+if (f->alias)
 free_list(&(f->alias));
 
 if (!f->cmd_buf)
@@ -78,7 +78,7 @@ _putchar(B);
  * clear_info - ....
  * @f: ...
  */
-void clear_info(info_t f)
+void clear_info(inf_t *f)
 {
 f->argc = 0;
 f->path = NULL;
@@ -91,7 +91,7 @@ f->argv = NULL;
  * @f: ...
  * @a: ...
  */
-void set_info(info_t f, char **a)
+void set_info(inf_t *f, char **a)
 {
 int i;
 
@@ -112,6 +112,5 @@ while (f->argv && f->argv[i])
 i++;
 f->argc = i;
 replace_alias(f);
-replaca_vars(f);
-}
+replace_vars(f);
 }

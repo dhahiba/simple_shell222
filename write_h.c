@@ -1,4 +1,4 @@
-#include "shell.h"
+#include "shell0.h"
 /**
  * write_h - ...
  * @f: ....
@@ -19,7 +19,7 @@ return (-1);
 node = f->history;
 while (node)
 {
-_putsfd(node->history, fd);
+_putsfd(node->s, fd);
 _putfd('\n', fd);
 node = node->next;
 }

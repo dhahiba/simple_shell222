@@ -1,4 +1,4 @@
-#include "shell0.h"
+#include "shell.h"
 /**
  * eputs - ...
  * @s: ...
@@ -46,12 +46,10 @@ char *p;
 char s = 0;
 static char bf[100];
 static char *a;
-unsigned long m;
 
-m = n;
 if (n < 0 && !(f & CONVERT_UNSIGNED))
 {
-m = -n;
+n = -n;
 s = '-';
 }
 a = f & CONVERT_LOWERCASE ? "0123456789abcdef" : "0123456789ABCDEF";

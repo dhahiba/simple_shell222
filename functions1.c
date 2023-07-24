@@ -1,4 +1,4 @@
-#include "shell0.h"
+#include "shell.h"
 /**
  * _inter - ...
  * @f: ..
@@ -23,7 +23,7 @@ int is_delim(char c, char *d)
 	{
 		if (*d == c)
 			return (1);
-		*d++;
+		d++;
 	}
 	return (0);
 }
@@ -49,7 +49,7 @@ int _isalpha(int c)
  */
 void print_error(inf_t *f, char *s)
 {
-	eputs(&(f->fname));
+	eputs(f->fname);
 	_putchar(' ');
 	print_d(f->line_count, STDERR_FILENO);
 	_putchar(':');

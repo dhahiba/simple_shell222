@@ -1,14 +1,16 @@
-#include "shell0.h"
+#include "shell.h"
 /**
  * ffree - ..
  * @p: ...
  */
 void ffree(char **p)
 {
+int i;
+
 if (p == NULL)
 return;
 
-for (int i = 0; p[i] != NULL; i++)
+for (i = 0; p[i] != NULL; i++)
 {
 free(p[i]);
 }

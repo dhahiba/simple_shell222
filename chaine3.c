@@ -1,4 +1,4 @@
-#include "shell0.h"
+#include "shell.h"
 /**
  * _strchr - ..
  * @s: ..
@@ -28,7 +28,8 @@ void f_cmd(inf_t *f)
 {
 int i, j;
 char *p = NULL;
-f->path->argv[0];
+
+f->path = f->argv[0];
 if (f->linecount_flag == 1)
 {
 f->linecount_flag = 0;
@@ -82,12 +83,12 @@ buil_t b[] = {
 };
 int i = 0, r = 1;
 
-while (b[i]->type)
+while (b[i].t)
 {
-if (_strcmp(f->argv[0], b[i]->type) == 0)
+if (_strcmp(f->argv[0], b[i].t) == 0)
 {
 f->line_count++;
-r = b[i]->func(f);
+r = b[i].f(f);
 break;
 }
 i++;

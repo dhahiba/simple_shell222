@@ -1,4 +1,4 @@
-#include "shell0.h"
+#include "shell.h"
 /**
  * _strcmp - Compares pointers to two strings
  * @s1: string
@@ -23,8 +23,12 @@ int _strcmp(char *s1, char *s2)
 char *strwith(const char *ch1, const char *ch2)
 {
 while (*ch2)
-if (*ch2++ != *ch2++)
+{
+if (*ch1 != *ch2)
 return (NULL);
+ch1++;
+ch2++;
+}
 return ((char *)ch1);
 }
 /**

@@ -1,4 +1,4 @@
-#include "shell0.h"
+#include "shell.h"
 /**
  * main_shell - ..
  * @f: ..
@@ -22,7 +22,7 @@ if (r != -1)
 set_info(f, s);
 b = find_b(f);
 if (r == -1)
-find_cmd(f);
+f_cmd(f);
 }
 else if (_inter(f))
 _putchar('\n');

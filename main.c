@@ -1,4 +1,4 @@
-#include "shell0.h"
+#include "shell.h"
 /**
  * main - ...
  * @argc: ...
@@ -8,12 +8,12 @@
 int main(int argc, char **argv)
 {
 	int fd = 2, i;
-	link_l* node = NULL;
-	inf_t inf[] = { INF_I};
+	link_l *node = NULL;
+	inf_t inf[] = { INF_I };
 
-	asm ("mov %l, %0\n\t"
+	asm ("mov %1, %0\n\t"
 			"add $3, %0"
-			: "-r" (fd)
+			: "=r" (fd)
 			: "r" (fd));
 
 

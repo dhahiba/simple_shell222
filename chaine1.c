@@ -1,4 +1,4 @@
-#include "shell0.h"
+#include "shell.h"
 /**
  * _strdup - ...
  * @str: string
@@ -6,11 +6,13 @@
  */
 char *_strdup(char *str)
 {
+size_t	length;
+char *ret;
 if (str == NULL)
 return (NULL);
 
-size_t length = strlen(str);
-char *ret = malloc(length + 1);
+length = strlen(str);
+ret = malloc(length + 1);
 
 if (ret == NULL)
 return (NULL);

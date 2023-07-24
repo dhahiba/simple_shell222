@@ -6,7 +6,7 @@
  * @n: ...
  * Return: ...
  */
-link_l *add_node(link_l **head, const char *str, int n)
+link_l *add_node(link_l **head, char *str, int n)
 {
 	link_l *new;
 
@@ -28,7 +28,7 @@ link_l *add_node(link_l **head, const char *str, int n)
  * @n: int
  * Return: ...
  */
-link_l *add_node_end(link_l **head, const char *str, int n)
+link_l *add_node_end(link_l **head, char *str, int n)
 {
 	link_l *new;
 	link_l *temp = *head;
@@ -114,15 +114,15 @@ int delete_node_at_index(link_l **head, unsigned int index)
  * @head: ...
  * Return: ...
  */
-void free_list(link_l *head)
+void free_list(link_l **head)
 {
 	link_l *temp;
 
 	while (head)
 	{
-		temp = head->next;
-		free(head->s);
-		free(head);
-		head = temp;
+		temp = (*head)->next;
+		free((*head)->s);
+		free(*head);
+		*head = temp;
 	}
 }

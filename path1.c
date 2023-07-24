@@ -1,4 +1,4 @@
-#include "shell0.h"
+#include "shell.h"
 /**
  * set_alias - ...
  * @f: ...
@@ -59,7 +59,7 @@ char **a;
 
 a = f->argv;
 _puts("help");
--puts(*a);
+_puts(*a);
 return (0);
 }
 /**

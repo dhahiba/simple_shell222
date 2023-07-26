@@ -1,4 +1,54 @@
 #include "shell.h"
+#define MAX_COMMAND_LENGTH 100
+#define MAX_ARGUMENTS 10
+
+/**
+ * change_directory - ...
+ * @args: ...
+ */
+
+void change_directory(char *args[])
+{
+if (args[1] == NULL)
+{
+fprintf(stderr, "cd: missing argument\n");
+}
+else
+{
+if (chdir(args[1]) != 0)
+{
+perror("cd");
+}
+}
+}
+/**
+ * parse_input - ...
+ * @input: ...
+ * @args: ....
+ * Return: ...
+ */
+int parse_input(char *input, char *args[])
+{
+int arg_count = 0;
+char *token = strtok(input, " \t\n");
+
+while (token != NULL)
+{
+args[arg_count++] = token;
+token = strtok(NULL, " \t\n");
+}
+args[arg_count] = NULL;
+return (arg_count);
+}
+/**
+ * exit_shell: ...
+ * Return: ....
+ */
+void exit_shell(void)
+{
+printf("Exiting shell...\n");
+exit(0);
+}
 /**
  * main - ...
  * @argc: ...
@@ -7,14 +57,56 @@
  */
 
 
-int main(int argc __attribute__((unused)), char **argv)
+int main(void)
 {
-char **c = NULL;
-int i, tc = 0;
-size_t n = 0;
 
+char command[MAX_COMMAND_LENGTH];
+char *args[MAX_ARGUMENTS];
+int status;
+int arg_count;
+
+while (1)
+{
+printf("#cisfun$ ");
+fgets(command, sizeof(command), stdin);
+
+arg_count = parse_input(command, args);
+
+if (arg_count > 0)
+{
+if (strcmp(args[0], "cd") == 0)
+{
+change_directory(args);
+}
+else if (strcmp(args[0], "exit") == 0)
+{
+exit_shell();
+}
+else
+{
+pid_t pid = fork();
+if (pid < 0)
+{
+perror("fork");
+}
+else if (pid == 0)
+{
+execvp(args[0], args);
+perror("execvp");
+exit(1);
+}
+else
+{
+wait(&status);
+}
+}
+}
+}
 signal(SIGINT, cctrlhandler);
-sns = argv[0];
+
+return (0);
+}
+/**
 while (1)
 {
 hhandle_mode();
@@ -42,5 +134,5 @@ free(c);
 free(cmds);
 }
 free(lk);
-return (ss);
-}
+return (0);
+}*/

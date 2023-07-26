@@ -66,7 +66,7 @@ s1[i] = '\0';
  * Return: ...
  */
 
-void _cpy(char *s1, char *dst)
+void _strcpy(char *s1, char *dst)
 {
 int i = 0;
 
@@ -76,8 +76,8 @@ dst[i] = '\0';
 }
 
 /**
- *_len - ....
- *@s1: ...
+ * _len - ....
+ * @s1: ...
  * Return: ...
  */
 
@@ -91,4 +91,3 @@ for (; s1[ln] != '\0'; ln++)
 	;
 return (ln);
 }
-

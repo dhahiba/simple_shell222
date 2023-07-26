@@ -4,7 +4,7 @@
  *@ch: ...
  *@d: ...
  *@sp: ...
- *Return: ...
+ *Return: ....
  */
 char *_strtok(char *ch, char *d, char **sp)
 {
@@ -17,13 +17,13 @@ if (*ch == '\0')
 *sp = ch;
 return (NULL);
 }
-ch += _str_s(ch, d);
+ch += _str_(ch, d);
 if (*ch == '\0')
 {
 *sp = ch;
 return (NULL);
 }
-f = ch + _str_s(ch, d);
+f = ch + _str_(ch, d);
 if (*f == '\0')
 {
 *sp = f;
@@ -55,10 +55,11 @@ break;
 return (n);
 }
 /**
- * _rllc - ...
+ * _rllc - ....
  * @p: ....
  * @sizep: ...
  * @nsize: ...
+ *
  * Return: ...
  */
 void *_rllc(void *p, unsigned int sizep, unsigned int nsize)
@@ -84,7 +85,7 @@ b = malloc(nsize);
 if (b != NULL)
 {
 for (i = 0; i < min(sizep, nsize); i++)
-	*((char *)b + i) = *((char *)p + i);
+*((char *)b + i) = *((char *)p + i);
 free(p);
 return (b);
 }

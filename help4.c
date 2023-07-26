@@ -9,9 +9,9 @@ void env(char **tkc __attribute__((unused)))
 {
 int i;
 
-for (i = 0; environ[i] != NULL; i++)
+for (i = 0; envi[i] != NULL; i++)
 {
-_print(environ[i], STDOUT_FILENO);
+_print(envi[i], STDOUT_FILENO);
 _print("\n", STDOUT_FILENO);
 }
 }

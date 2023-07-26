@@ -37,29 +37,3 @@ free(l);
 exit(s);
 }
 }
-/**
- * start - ...
- * @c: ...
- * @tc: ...
- *
- * Return: ...
- */
-
-void start(char **c, int tc)
-{
-pid_t PID;
-
-if (tc == 1 || tc == 3)
-{
-PID = fork();
-if (PID == 0)
-execute(c, tc);
-else
-{
-waitpid(PID, &s, 0);
-s >>= 8;
-}
-}
-else
-execute(c, tc);
-}

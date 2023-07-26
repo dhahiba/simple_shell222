@@ -1,8 +1,4 @@
 #include "shell.h"
-char **cmd = NULL;
-char *l = NULL;
-char *sn = NULL;
-int s = 0;
 /**
  * main - ...
  * @argc: ...
@@ -21,12 +17,8 @@ signal(SIGINT, ctrlhandler);
 sn = argv[0];
 while (1)
 {
-
 handle_mode();
 _print(" ($) ", STDOUT_FILENO);
-if (argv[0][0] == 'e' && argv[0][1] == 'x')
-if (argv[0][2] == 'i' && argv[0][3] == 't')
-_exite(argc, argv);
 if (getline(&l, &n, stdin) == -1)
 {
 free(l);

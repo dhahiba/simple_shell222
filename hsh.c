@@ -36,3 +36,26 @@ free(lk);
 exit(ss);
 }
 }
+/**
+ * sstart - ...
+ * @c: ...
+ * @tc: ...
+ */
+void sstart(char **c, int tc)
+{
+pid_t PID;
+
+if (tc == 1 || tc == 3)
+{
+PID = fork();
+if (PID == 0)
+eexecute(c, tc);
+else
+{
+waitpid(PID, &ss, 0);
+ss >>= 8;
+}
+}
+else
+eexecute(c, tc);
+}

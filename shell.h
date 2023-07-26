@@ -17,6 +17,12 @@
 #define INVALID_COMMAND -1
 
 #define min(x, y) (((x) < (y)) ? (x) : (y))
+extern char **cmds;
+extern int ss;
+extern char *sns;
+extern char *lk;
+extern char **envi;
+
 /**
  *struct map - a struct that maps a command name to a function
  *
@@ -29,11 +35,6 @@ typedef struct map
 char *ccname;
 void (*ff)(char **command);
 } func;
-extern char **envi;
-extern char *lk;
-extern char **cmds;
-extern char *sns;
-extern int ss;
 char *_sstrtok(char *ch, char *d, char **sp);
 int _aatois(char *s);
 void *_rrllc(void *p, unsigned int sizep, unsigned int nsize);

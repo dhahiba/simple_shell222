@@ -1,5 +1,9 @@
 #include "shell.h"
-
+char **envi = NULL;
+char **cmds = NULL;
+char *lk = NULL;
+char *sns = NULL;
+int ss = 0;
 /**
  * main - ...
  * @argc: ...

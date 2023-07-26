@@ -1,5 +1,5 @@
 #include "shell.h"
-char **envi= NULL;
+char **envi = NULL;
 char **cmds = NULL;
 char *lk = NULL;
 char *sns = NULL;
@@ -24,14 +24,11 @@ sns = argv[0];
 while (1)
 {
 hhandle_mode();
-_pprint(" ($) ", STDOUT_FILENO);
+_pprint(":) ", STDOUT_FILENO);
 fgets(command, sizeof(command), stdin);
 arg_count = parse_input(command, args);
 if (arg_count > 0)
 execute_command(args);
-}
-while (1)
-{
 hhandle_mode();
 _pprint(" ($) ", STDOUT_FILENO);
 if (getline(&lk, &n, stdin) == -1)

@@ -27,7 +27,7 @@ free(c);
 break;
 }
 tc = pp_command(c[0]);
-start(c, tc);
+sstart(c, tc);
 free(c);
 }
 free(cmds);

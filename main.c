@@ -19,9 +19,9 @@ while (1)
 {
 hhandle_mode();
 _pprint(" ($) ", STDOUT_FILENO);
-if (getline(&l, &n, stdin) == -1)
+if (getline(&lk, &n, stdin) == -1)
 {
-free(ll);
+free(lk);
 exit(ss);
 }
 rr_line(lk);
@@ -36,7 +36,7 @@ free(c);
 break;
 }
 tc = pp_command(c[0]);
-start(c, tc);
+sstart(c, tc);
 free(c);
 }
 free(cmds);

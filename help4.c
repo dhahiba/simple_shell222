@@ -31,7 +31,7 @@ for (; tkc[ntkn] != NULL; ntkn++)
 if (ntkn == 1)
 {
 free(tkc);
-free(ls);
+free(lk);
 free(cmds);
 exit(ss);
 }

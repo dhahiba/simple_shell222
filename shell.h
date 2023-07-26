@@ -57,6 +57,6 @@ void eexecute(char **tkn_cmd, int tcmd);
 char *ccheck_p(char *cm);
 void (*_ggetfunc(char *cm))(char **);
 void _ccpy(char *s1, char *dst);
-char *get_env(char *n);
+char *gget_env(char *n);
 void rr_comment(char *ipt);
 #endif

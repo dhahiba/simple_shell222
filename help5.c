@@ -19,7 +19,7 @@ return (1);
 }
 for (i = 0; ic[i] != NULL; i++)
 {
-if (cmp(cm, ic[i]) == 0)
+if (ccmp(cm, ic[i]) == 0)
 return (2);
 }
 p = ccheck_p(cm);

@@ -77,8 +77,11 @@ fd = open(fn, O_RDONLY);
 free(fn);
 if (fd == -1)
 return (0);
+
 if (!fstat(fd, &s))
+
 fs = s.st_size;
+
 if (fs < 2)
 return (0);
 b = malloc(sizeof(char) * (fs + 1));

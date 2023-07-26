@@ -13,34 +13,34 @@ char **c = NULL;
 int i, tc = 0;
 size_t n = 0;
 
-signal(SIGINT, ctrlhandler);
-sn = argv[0];
+signal(SIGINT, cctrlhandler);
+sns = argv[0];
 while (1)
 {
-handle_mode();
-_print(" ($) ", STDOUT_FILENO);
+hhandle_mode();
+_pprint(" ($) ", STDOUT_FILENO);
 if (getline(&l, &n, stdin) == -1)
 {
-free(l);
-exit(s);
+free(ll);
+exit(ss);
 }
-r_line(l);
-r_comment(l);
-cmd = _tokenizer(l, ";");
-for (i = 0; cmd[i] != NULL; i++)
+rr_line(lk);
+rr_comment(lk);
+cmds = _ttokenizer(lk, ";");
+for (i = 0; cmds[i] != NULL; i++)
 {
-c = _tokenizer(cmd[i], " ");
+c = _ttokenizer(cmds[i], " ");
 if (c[0] == NULL)
 {
 free(c);
 break;
 }
-tc = p_command(c[0]);
+tc = pp_command(c[0]);
 start(c, tc);
 free(c);
 }
-free(cmd);
+free(cmds);
 }
-free(l);
-return (s);
+free(lk);
+return (ss);
 }

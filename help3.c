@@ -1,12 +1,12 @@
 #include "shell.h"
 /**
- *_strtok - ...
- *@ch: ...
- *@d: ...
- *@sp: ...
- *Return: ....
+ * _sstrtok - ...
+ * @ch: ...
+ * @d: ...
+ * @sp: ...
+ * Return: ....
  */
-char *_strtok(char *ch, char *d, char **sp)
+char *_sstrtok(char *ch, char *d, char **sp)
 {
 char *f;
 
@@ -17,13 +17,13 @@ if (*ch == '\0')
 *sp = ch;
 return (NULL);
 }
-ch += _str_(ch, d);
+ch += _sstr(ch, d);
 if (*ch == '\0')
 {
 *sp = ch;
 return (NULL);
 }
-f = ch + _str_(ch, d);
+f = ch + _sstr(ch, d);
 if (*f == '\0')
 {
 *sp = f;
@@ -34,12 +34,11 @@ return (ch);
 return (ch);
 }
 /**
- * _atois - ...
+ * _aatois - ...
  * @s:...
- *
  * Return: ...
  */
-int _atois(char *s)
+int _aatois(char *s)
 {
 unsigned int n = 0;
 do {
@@ -55,14 +54,13 @@ break;
 return (n);
 }
 /**
- * _rllc - ....
+ * _rrllc - ....
  * @p: ....
  * @sizep: ...
  * @nsize: ...
- *
  * Return: ...
  */
-void *_rllc(void *p, unsigned int sizep, unsigned int nsize)
+void *_rrllc(void *p, unsigned int sizep, unsigned int nsize)
 {
 void *b;
 unsigned int i;
@@ -94,24 +92,22 @@ return (NULL);
 }
 }
 /**
- * ctrlhandler -....
+ * cctrlhandler - ...
  * @snum: ...
- *
  * Return: ...
  */
-void ctrlhandler(int snum)
+void cctrlhandler(int snum)
 {
 if (snum == SIGINT)
-_print("\n($) ", STDIN_FILENO);
+_pprint("\n($) ", STDIN_FILENO);
 }
 
 /**
- * r_comment - ....
+ * rr_comment - ....
  * @ipt: input to be used
- *
  * Return: void
  */
-void r_comment(char *ipt)
+void rr_comment(char *ipt)
 {
 int i = 0;
 

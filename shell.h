@@ -15,6 +15,8 @@
 #define INTERNAL_COMMAND 2
 #define PATH_COMMAND 3
 #define INVALID_COMMAND -1
+#define MAX_COMMAND_LENGTH 100
+#define MAX_ARGUMENTS 10
 
 #define min(x, y) (((x) < (y)) ? (x) : (y))
 extern char **cmds;
@@ -60,4 +62,7 @@ void (*_ggetfunc(char *cm))(char **);
 void _ccpy(char *s1, char *dst);
 char *gget_env(char *n);
 void rr_comment(char *ipt);
+void change_directory(char *args[]);
+void execute_command(char *args[]);
+int parse_input(char *input, char *args[]);
 #endif

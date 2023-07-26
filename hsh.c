@@ -59,3 +59,21 @@ ss >>= 8;
 else
 eexecute(c, tc);
 }
+/**
+ * change_directory - ...
+ * @args: ...
+ */
+void change_directory(char *args[])
+{
+if (args[1] == NULL)
+{
+fprintf(stderr, "cd: missing argument\n");
+}
+else
+{
+if (chdir(args[1]) != 0)
+{
+perror("cd");
+}
+}
+}
